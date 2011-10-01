@@ -25,7 +25,7 @@ class DatabaseConnection_firebird extends DatabaseConnection {
       $connection_options['port'] = 3050;
     }
 
-    $dsn = 'firebird:host=' . $connection_options['host'] . ';port=' . $connection_options['port'] . ';dbname=' . $connection_options['database'];
+    $dsn = 'firebird:host=' . $connection_options['host'] . ';port=' . $connection_options['port'] . ';dbname=' . $connection_options['host'] . ':' . $connection_options['database'];
     parent::__construct($dsn, $connection_options['username'], $connection_options['password'], array(
       // Force column names to upper case.
       PDO::ATTR_CASE => PDO::CASE_UPPER,
