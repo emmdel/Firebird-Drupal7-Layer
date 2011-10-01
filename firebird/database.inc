@@ -121,7 +121,7 @@ class DatabaseConnection_firebird extends DatabaseConnection {
       }
     }
     catch (PDOException $e) {
-      _db_check_install_needed();
+      // _db_check_install_needed();
       if ($options['throw_exception']) {
         if ($query instanceof DatabaseStatementInterface) {
           $query_string = $stmt->getQueryString();
