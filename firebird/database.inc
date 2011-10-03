@@ -15,7 +15,7 @@ class DatabaseConnection_firebird extends DatabaseConnection {
   public  $debug_query = false;
   public function __construct(array $connection_options = array()) {
     // This driver defaults to transaction support, except if explicitly passed FALSE.
-    //$this->transactionSupport = !isset($connection_options['transactions']) || $connection_options['transactions'] === FALSE;
+    // $this->transactionSupport = !isset($connection_options['transactions']) || $connection_options['transactions'] === FALSE;
     // This driver defaults to non transaction support.
 //    $this->transactionSupport = !empty($connection_option['transactions']);
     $this->transactionSupport = true;	
@@ -88,6 +88,7 @@ class DatabaseConnection_firebird extends DatabaseConnection {
     return $this->query('SELECT value FROM {sequences}')->fetchField();
   }
 
+/*
   public function query($query, array $args = array(), $options = array()) {
 
     $options += $this->defaultOptions();
@@ -99,14 +100,13 @@ class DatabaseConnection_firebird extends DatabaseConnection {
     $query = $this->replaceKeywords( $query );
     //DEBUGGING
 
-   if ($this->debug_query===true)
-{    
+   if ($this->debug_query===true) {    
     echo $query . "<br>";
     foreach( $args as $place => $arg ) {
      echo "   " . $place . " => " . $arg . "<br>";
     }
     echo "<br><br>";
-}
+    }
     //END DEBUGGING
 
     try {
@@ -155,7 +155,7 @@ class DatabaseConnection_firebird extends DatabaseConnection {
       return NULL;
     }
 
-  }
+  } */
 
   public function queryRange($query,$from , $count, array $args = array(),array $options = array()) {
     return $this->query($query . ' LIMIT ' . $from . ', ' . $count, $args, $options);
